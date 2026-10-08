@@ -2,7 +2,11 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0E0604">
+<style>html,body{margin:0;background:#0E0604}</style>
+<link rel="preload" href="img/v5-hero.webp" as="image">
+<script>window.__resources={"https://unpkg.com/react@18.3.1/umd/react.production.min.js":"./vendor/react.production.min.js","https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js":"./vendor/react-dom.production.min.js"};</script>
 <script src="./support.js"></script>
 <title>Мега Куки</title>
 </head>
@@ -10,7 +14,7 @@
 <template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#C9772F"/><circle cx="50" cy="50" r="20" fill="#4A2410"/></svg></template>
 <x-dc>
 <helmet>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
@@ -59,13 +63,13 @@ a:hover{color:#C9772F}
 
     <div data-l="crack" style="position:absolute;left:50%;top:50%;width:115vw;height:115vh;color:#FFF4E6;background:#3A1A10;opacity:0;visibility:hidden;will-change:transform,opacity,filter">
       <image-slot id="v5-crack" shape="rect" src="img/v5-crack.jpg" placeholder="A02 · HIGGSFIELD · Макро трещины на печёной поверхности"></image-slot>
-      <video src="media/crack.mp4" poster="img/v5-crack.jpg" autoplay="" muted="" loop="" playsinline="" preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none"></video>
+      <video src="media/crack.mp4" poster="img/v5-crack.jpg" autoplay="" muted="" loop="" playsinline="" preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none"></video>
     </div>
     <div data-l="crackRim" style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%, #1A0D06 0%, #0A0203 70%);opacity:0;visibility:hidden"></div>
     <div data-l="interior" style="position:absolute;inset:0;overflow:hidden;opacity:0;visibility:hidden">
       <div data-l="interiorImg" style="position:absolute;left:50%;top:50%;width:115vw;height:115vh;color:#FFF4E6;background:#2A0E08;will-change:transform,filter">
         <image-slot id="v5-interior" shape="rect" src="img/v5-interior.jpg" placeholder="A03 · Разлом изнутри: шоколад, мякиш, тёплый контровой свет"></image-slot>
-        <video src="media/interior.mp4" poster="img/v5-interior.jpg" autoplay="" muted="" loop="" playsinline="" preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none"></video>
+        <video src="media/interior.mp4" poster="img/v5-interior.jpg" autoplay="" muted="" loop="" playsinline="" preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none"></video>
       </div>
     </div>
     <div data-l="haze" style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%, rgba(233,150,70,0.55), rgba(233,150,70,0) 70%);mix-blend-mode:screen;opacity:0;visibility:hidden"></div>
@@ -230,10 +234,12 @@ class Component extends DCLogic {
     this.stEls = [...root.querySelectorAll('[data-st]')];
     this.crackSeed(); this.build();
     this.onMove = e => { this.ptr.x = e.clientX / innerWidth * 2 - 1; this.ptr.y = e.clientY / innerHeight * 2 - 1; };
-    this.onResize = () => this.build();
+    this.onResize = () => { this.build(); this.annoEls = null; };
     addEventListener('pointermove', this.onMove, { passive: true }); addEventListener('resize', this.onResize);
     this.startVideos = () => document.querySelectorAll('video').forEach(v => { v.muted = true; v.defaultMuted = true; v.playsInline = true; if (v.paused) v.play().catch(() => {}); });
     this.startVideos(); this.vidT = setInterval(this.startVideos, 1500);
+    this.unlock = () => this.startVideos(); ['touchstart', 'click', 'keydown'].forEach(e => addEventListener(e, this.unlock, { passive: true }));
+    this.onVis = () => { if (!document.hidden) this.startVideos(); }; document.addEventListener('visibilitychange', this.onVis);
     const pre = []; document.querySelectorAll('image-slot[src], img[src]').forEach(s => { const im = new Image(); im.decoding = 'async'; im.src = s.getAttribute('src'); im.decode().catch(() => {}); pre.push(im); }); this._pre = pre;
     this.beat = 0; this.anim = null; this.lastWheel = 0; this.armed = true; this.acc = 0;
     document.documentElement.style.overflow = 'hidden'; document.body.style.overflow = 'hidden';
@@ -270,7 +276,7 @@ class Component extends DCLogic {
     this.last = performance.now(); this.loop = this.loop.bind(this); this.raf = requestAnimationFrame(this.loop);
   }
   componentWillUnmount() {
-    cancelAnimationFrame(this.raf); clearInterval(this.vidT); removeEventListener('pointermove', this.onMove); removeEventListener('resize', this.onResize);
+    cancelAnimationFrame(this.raf); clearInterval(this.vidT); ['touchstart', 'click', 'keydown'].forEach(e => removeEventListener(e, this.unlock)); document.removeEventListener('visibilitychange', this.onVis); removeEventListener('pointermove', this.onMove); removeEventListener('resize', this.onResize);
     removeEventListener('wheel', this.onWheel); removeEventListener('touchstart', this.onTouchStart); removeEventListener('touchmove', this.onTouchMove); removeEventListener('touchend', this.onTouchEnd); removeEventListener('keydown', this.onKey);
     document.documentElement.style.overflow = ''; document.body.style.overflow = '';
   }
@@ -463,8 +469,14 @@ class Component extends DCLogic {
       const d = list[i]; if (!d) return;
       if (!a.set) {
         a.set = true; a.el.style.left = d.x + '%'; a.el.style.top = d.y + '%';
-        const flip = d.x > 55; a.line.style.transform = flip ? 'rotate(-152deg)' : 'rotate(-28deg)';
+        const flip = d.x > (this.mob ? 50 : 55); a.line.style.transform = flip ? 'rotate(-152deg)' : 'rotate(-28deg)';
         Object.assign(a.lab.style, flip ? { left: 'auto', right: '66px', textAlign: 'right' } : { left: '66px', right: 'auto', textAlign: 'left' });
+        if (this.mob) Object.assign(a.lab.style, { fontSize: '10px', letterSpacing: '0.1em', padding: '7px 10px', maxWidth: 'min(200px,56vw)' });
+        a.lab.style.transform = '';
+        const r = a.lab.getBoundingClientRect(), pad = 12;
+        const dx = r.left < pad ? pad - r.left : r.right > innerWidth - pad ? innerWidth - pad - r.right : 0;
+        const dy = r.top < pad + 48 ? pad + 48 - r.top : r.bottom > innerHeight - pad - 48 ? innerHeight - pad - 48 - r.bottom : 0;
+        if (dx || dy) a.lab.style.transform = `translate(${dx.toFixed(0)}px,${dy.toFixed(0)}px)`;
       }
       const o = d.tex ? sm(0.635, 0.65, p) * (1 - sm(0.67, 0.685, p)) : sm(0.715 + d.k * 0.008, 0.73 + d.k * 0.008, p) * (1 - sm(0.752, 0.766, p));
       a.el.style.opacity = o.toFixed(3); a.el.style.visibility = o < 0.01 ? 'hidden' : 'visible';
