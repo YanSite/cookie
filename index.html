@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0E0604">
 <style>html,body{margin:0;background:#0E0604}</style>
-<link rel="preload" href="img/v5-hero.webp" as="image">
+<link rel="preload" href="img/v5-hero.webp" as="image" fetchpriority="high">
 <script>window.__resources={"https://unpkg.com/react@18.3.1/umd/react.production.min.js":"./vendor/react.production.min.js","https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js":"./vendor/react-dom.production.min.js"};</script>
 <script src="./support.js"></script>
 <title>Мега Куки</title>
@@ -61,13 +61,13 @@ a:hover{color:#C9772F}
 
     <div data-l="crack" style="position:absolute;left:50%;top:50%;width:115vw;height:115vh;color:#FFF4E6;background:#3A1A10;opacity:0;visibility:hidden;will-change:transform,opacity,filter">
       <image-slot id="v5-crack" shape="rect" src="img/v5-crack.webp" placeholder="A02 · HIGGSFIELD · Макро трещины на печёной поверхности"></image-slot>
-      <video src="media/crack.mp4" poster="img/v5-crack.webp" autoplay="" muted="" loop="" playsinline="" preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none"></video>
+      <video src="media/crack.mp4" poster="img/v5-crack.webp" muted="" loop="" playsinline="" preload="none" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none"></video>
     </div>
     <div data-l="crackRim" style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%, #1A0D06 0%, #0A0203 70%);opacity:0;visibility:hidden"></div>
     <div data-l="interior" style="position:absolute;inset:0;overflow:hidden;opacity:0;visibility:hidden">
       <div data-l="interiorImg" style="position:absolute;left:50%;top:50%;width:115vw;height:115vh;color:#FFF4E6;background:#2A0E08;will-change:transform,filter">
         <image-slot id="v5-interior" shape="rect" src="img/v5-interior.webp" placeholder="A03 · Разлом изнутри: шоколад, мякиш, тёплый контровой свет"></image-slot>
-        <video src="media/interior.mp4" poster="img/v5-interior.webp" autoplay="" muted="" loop="" playsinline="" preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none"></video>
+        <video src="media/interior.mp4" poster="img/v5-interior.webp" muted="" loop="" playsinline="" preload="none" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none"></video>
       </div>
     </div>
     <div data-l="haze" style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%, rgba(233,150,70,0.55), rgba(233,150,70,0) 70%);mix-blend-mode:screen;opacity:0;visibility:hidden"></div>
@@ -80,19 +80,19 @@ a:hover{color:#C9772F}
       <span style="font-weight:500;font-size:max(3vw,18px);letter-spacing:-0.03em;line-height:0.9">ФИСТАШКА</span>
     </div>
     <div data-l="p2" onClick="{{ pick2 }}" onPointerEnter="{{ hov2 }}" onPointerLeave="{{ unhov }}" style="position:absolute;left:50%;top:50%;width:max(60vmin,min(80vw,40vh));height:max(60vmin,min(80vw,40vh));color:#FFF4E6;opacity:0;visibility:hidden;will-change:transform,opacity,filter">
-      <img src="img/v5-p2.webp" alt="Фисташка" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3vmin 4vmin rgba(10,14,4,0.45))">
+      <img fetchpriority="low" decoding="async" src="img/v5-p2.webp" alt="Фисташка" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3vmin 4vmin rgba(10,14,4,0.45))">
     </div>
     <div data-l="n1" onClick="{{ pick1 }}" style="position:absolute;left:50%;top:50%;display:flex;flex-direction:column;align-items:center;gap:10px;width:max-content;color:#FFF4E6;pointer-events:auto;cursor:pointer;opacity:0;visibility:hidden" onClick="{{ pick1 }}">
       <span style="font-weight:500;font-size:max(5.4vw,26px);letter-spacing:-0.045em;line-height:0.9">КЛУБНИКА</span>
     </div>
     <div data-l="p1" onClick="{{ pick1 }}" onPointerEnter="{{ hov1 }}" onPointerLeave="{{ unhov }}" style="position:absolute;left:50%;top:50%;width:max(60vmin,min(80vw,40vh));height:max(60vmin,min(80vw,40vh));color:#FFF4E6;opacity:0;visibility:hidden;will-change:transform,opacity,filter">
-      <img src="img/v5-p1.webp" alt="Клубника" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3vmin 4vmin rgba(20,10,4,0.45))">
+      <img fetchpriority="low" decoding="async" src="img/v5-p1.webp" alt="Клубника" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3vmin 4vmin rgba(20,10,4,0.45))">
     </div>
     <div data-l="n0" onClick="{{ pick0 }}" style="position:absolute;left:50%;top:50%;display:flex;flex-direction:column;align-items:center;gap:12px;width:max-content;color:#FFF4E6;pointer-events:auto;cursor:pointer;opacity:0;visibility:hidden" onClick="{{ pick0 }}">
       <span style="font-weight:500;font-size:max(9vw,44px);letter-spacing:-0.055em;line-height:0.84">ШОКОЛАД</span>
     </div>
     <div data-l="p0" onClick="{{ pick0 }}" onPointerEnter="{{ hov0 }}" onPointerLeave="{{ unhov }}" style="position:absolute;left:50%;top:50%;width:max(60vmin,min(80vw,40vh));height:max(60vmin,min(80vw,40vh));color:#FFF4E6;opacity:0;visibility:hidden;will-change:transform,opacity,filter">
-      <img src="img/v5-p0.webp" alt="Двойной шоколад" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3vmin 4vmin rgba(0,0,0,0.55))">
+      <img fetchpriority="low" decoding="async" src="img/v5-p0.webp" alt="Двойной шоколад" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3vmin 4vmin rgba(0,0,0,0.55))">
     </div>
 
     <div data-l="whole" style="position:absolute;left:50%;top:50%;width:max(min(86vw,300px),min(34vw,440px));display:flex;flex-direction:column;gap:18px;color:var(--ink);transition:color 0.4s;opacity:0;visibility:hidden">
@@ -149,7 +149,7 @@ a:hover{color:#C9772F}
           <sc-for list="{{ menu }}" as="m" hint-placeholder-count="3">
             <div style="display:grid;grid-template-columns:clamp(64px,7vw,104px) minmax(0,1fr) auto;gap:clamp(14px,1.6vw,24px);align-items:center;padding:clamp(14px,2.2vh,22px) 0;border-top:1px solid rgba(26,13,6,0.9)">
               <div style="width:clamp(64px,7vw,104px);height:clamp(64px,7vw,104px);color:#1A0D06">
-                <sc-if value="{{ m.i0 }}" hint-placeholder-val="{{ false }}"><img src="img/v5-m0.webp" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></sc-if><sc-if value="{{ m.i1 }}" hint-placeholder-val="{{ false }}"><img src="img/v5-m1.webp" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></sc-if><sc-if value="{{ m.i2 }}" hint-placeholder-val="{{ false }}"><img src="img/v5-m2.webp" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></sc-if>
+                <sc-if value="{{ m.i0 }}" hint-placeholder-val="{{ false }}"><img fetchpriority="low" decoding="async" src="img/v5-m0.webp" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></sc-if><sc-if value="{{ m.i1 }}" hint-placeholder-val="{{ false }}"><img fetchpriority="low" decoding="async" src="img/v5-m1.webp" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></sc-if><sc-if value="{{ m.i2 }}" hint-placeholder-val="{{ false }}"><img fetchpriority="low" decoding="async" src="img/v5-m2.webp" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></sc-if>
               </div>
               <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
                 <span style="font-weight:500;font-size:clamp(22px,2.2vw,34px);line-height:0.95;letter-spacing:-0.04em">{{ m.title }}</span>
@@ -235,10 +235,17 @@ class Component extends DCLogic {
     this.onResize = () => { this.build(); this.annoEls = null; };
     addEventListener('pointermove', this.onMove, { passive: true }); addEventListener('resize', this.onResize);
     this.startVideos = () => document.querySelectorAll('video').forEach(v => { v.muted = true; v.defaultMuted = true; v.playsInline = true; if (v.paused) v.play().catch(() => {}); });
-    this.startVideos(); this.vidT = setInterval(this.startVideos, 1500);
-    this.unlock = () => this.startVideos(); ['touchstart', 'click', 'keydown'].forEach(e => addEventListener(e, this.unlock, { passive: true }));
+    // Видео и прогрев картинок следующих сцен стартуют после главного фото первого экрана (см. afterHero ниже):
+    // раньше всё грузилось одновременно с ним и делило канал.
+    this.unlock = () => { afterHero(); this.startVideos(); }; ['touchstart', 'click', 'keydown'].forEach(e => addEventListener(e, this.unlock, { passive: true }));
     this.onVis = () => { if (!document.hidden) this.startVideos(); }; document.addEventListener('visibilitychange', this.onVis);
-    const pre = []; document.querySelectorAll('image-slot[src], img[src]').forEach(s => { const im = new Image(); im.decoding = 'async'; im.src = s.getAttribute('src'); im.decode().catch(() => {}); pre.push(im); }); this._pre = pre;
+    const afterHero = () => {
+      if (this._warm) return; this._warm = true;
+      this.startVideos(); this.vidT = setInterval(this.startVideos, 1500);
+      const pre = []; document.querySelectorAll('image-slot[src], img[src]').forEach(s => { const im = new Image(); im.decoding = 'async'; im.src = s.getAttribute('src'); im.decode().catch(() => {}); pre.push(im); }); this._pre = pre;
+    };
+    const heroIm = new Image(); heroIm.onload = heroIm.onerror = afterHero; heroIm.src = 'img/v5-hero.webp';
+    this.heroT = setTimeout(afterHero, 4000);
     this.beat = 0; this.anim = null; this.lastWheel = 0; this.armed = true; this.acc = 0;
     document.documentElement.style.overflow = 'hidden'; document.body.style.overflow = 'hidden';
     const menuScrolls = (t, dir) => { const m = this.els.menu; if (!m || !(t instanceof Node) || !m.contains(t) || this.BEATS[this.beat].p !== 0.83) return false; return dir > 0 ? m.scrollTop + m.clientHeight < m.scrollHeight - 2 : m.scrollTop > 0; };
