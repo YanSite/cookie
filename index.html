@@ -22,7 +22,7 @@ concept-card{--cc-font:'Geologica',system-ui,sans-serif}
 </head>
 <body>
 <template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#C9772F"/><circle cx="50" cy="50" r="20" fill="#4A2410"/></svg></template>
-<div id="cover" aria-hidden="true"><b><span>МЕГА</span><span>КУКИ</span><span style="display:flex;align-items:center;gap:14px;margin-top:clamp(18px,3vh,32px);font-weight:400;font-size:clamp(10px,0.8vw,12px);line-height:1;letter-spacing:0.22em"><span style="width:32px;height:1px;background:currentColor"></span>ШОКОЛАД · КЛУБНИКА · ФИСТАШКА</span></b><img src="img/v5-hero.webp" alt=""></div>
+<div id="cover" aria-hidden="true"><b><span>МЕГА</span><span>КУКИ</span><span style="display:flex;align-items:center;gap:14px;margin-top:clamp(18px,3vh,32px);font-weight:400;font-size:clamp(10px,0.8vw,12px);line-height:1;letter-spacing:0.22em"><span style="width:32px;height:1px;background:currentColor"></span>ШОКОЛАД, КЛУБНИКА, ФИСТАШКА</span></b><img src="img/v5-hero.webp" alt=""></div>
 <x-dc>
 <helmet>
 <link rel="stylesheet" href="fonts/fonts.css">
@@ -44,11 +44,11 @@ a:hover{color:#C9772F}
     <div data-l="title" style="position:absolute;left:50%;top:50%;width:max-content;display:flex;flex-direction:column;align-items:flex-start;font-weight:500;font-size:min(22vw,18vh);line-height:0.84;letter-spacing:-0.055em;color:#FFF4E6;opacity:0;visibility:hidden;will-change:transform,opacity">
       <span>МЕГА</span>
       <span>КУКИ</span>
-      <span style="display:flex;align-items:center;gap:14px;margin-top:clamp(18px,3vh,32px);font-weight:400;font-size:clamp(10px,0.8vw,12px);line-height:1;letter-spacing:0.22em"><span style="width:32px;height:1px;background:currentColor"></span>ШОКОЛАД · КЛУБНИКА · ФИСТАШКА</span>
+      <span style="display:flex;align-items:center;gap:14px;margin-top:clamp(18px,3vh,32px);font-weight:400;font-size:clamp(10px,0.8vw,12px);line-height:1;letter-spacing:0.22em"><span style="width:32px;height:1px;background:currentColor"></span>ШОКОЛАД, КЛУБНИКА, ФИСТАШКА</span>
     </div>
-    <div data-l="s01meta" style="position:absolute;top:clamp(22px,4.4vh,44px);right:clamp(20px,3.2vw,48px);display:flex;flex-direction:column;align-items:flex-end;gap:8px;color:#FFF4E6;font-weight:400;font-size:10px;letter-spacing:0.22em;line-height:1.4;text-align:right;opacity:0;visibility:hidden">
-      <span>ПЕЧЕНЬЕ С НАЧИНКОЙ</span>
-      <span>ТРИ ГЛАВНЫХ ВКУСА</span>
+    <div data-l="s01meta" style="position:absolute;top:clamp(22px,4.4vh,44px);right:clamp(20px,3.2vw,48px);display:flex;flex-direction:column;align-items:flex-end;gap:8px;color:#FFF4E6;font-weight:400;font-size:12px;line-height:1.4;text-align:right;opacity:0;visibility:hidden">
+      <span>Печенье с начинкой</span>
+      <span>Три главных вкуса</span>
     </div>
 
     <div data-l="hero" style="filter:drop-shadow(0 4vmin 5vmin rgba(40,16,4,0.45));position:absolute;left:50%;top:50%;width:max(100vmin,min(130vw,62vh));height:max(100vmin,min(130vw,62vh));color:#FFF4E6;opacity:0;visibility:hidden;will-change:transform,opacity,filter">
@@ -56,10 +56,8 @@ a:hover{color:#C9772F}
       <img src="img/v5-hero.webp" alt="Фирменное печенье" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain">
     </div>
 
-    <div data-l="tagline" style="position:absolute;left:clamp(20px,3.2vw,48px);bottom:clamp(24px,5vh,56px);display:flex;flex-direction:column;gap:4px;font-weight:400;font-size:clamp(12px,0.95vw,14px);letter-spacing:0.2em;line-height:1.5;color:#FFF4E6;opacity:0;visibility:hidden">
-      <span>ТОЛСТЫЕ.</span>
-      <span>ТЁПЛЫЕ.</span>
-      <span>С НАЧИНКОЙ ВНУТРИ.</span>
+    <div data-l="tagline" style="position:absolute;left:clamp(20px,3.2vw,48px);bottom:clamp(24px,5vh,56px);display:flex;flex-direction:column;gap:4px;font-weight:400;font-size:clamp(13px,1vw,15px);line-height:1.5;color:#FFF4E6;opacity:0;visibility:hidden">
+      <span>Толстое тёплое печенье с начинкой внутри.</span>
     </div>
 
     <div data-l="bgDark" style="position:absolute;inset:0;background:radial-gradient(ellipse 55% 50% at 55% 38%, #4A2614 0%, #24120A 50%, #0E0604 100%);opacity:0;visibility:hidden">
@@ -105,7 +103,7 @@ a:hover{color:#C9772F}
     </div>
 
     <div data-l="whole" style="position:absolute;left:50%;top:50%;width:max(min(86vw,300px),min(34vw,440px));display:flex;flex-direction:column;gap:18px;color:var(--ink);transition:color 0.4s;opacity:0;visibility:hidden">
-      <span style="font-weight:400;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;opacity:0.7">{{ selIdx }} / 03</span>
+      <span style="font-weight:400;font-size:12px;font-variant-numeric:tabular-nums;opacity:0.7">{{ selIdx }} / 3</span>
       <span style="font-weight:500;font-size:clamp(44px,5.6vw,84px);line-height:0.88;letter-spacing:-0.05em">{{ selTitle }}</span>
       <span style="font-weight:300;font-size:clamp(14px,1.05vw,16px);line-height:1.55;text-wrap:pretty">{{ selDesc }}</span>
     </div>
@@ -133,14 +131,14 @@ a:hover{color:#C9772F}
       <div data-ai="{{ $index }}" style="position:absolute;left:0;top:0;opacity:0;visibility:hidden">
         <div style="position:absolute;left:-3px;top:-3px;width:6px;height:6px;border-radius:50%;background:#FFF4E6;box-shadow:0 0 0 6px rgba(244,234,226,0.14)"></div>
         <div data-line="" style="position:absolute;left:0;top:0;width:72px;height:1px;background:rgba(244,234,226,0.75);transform-origin:0 50%;transform:rotate(-28deg)"></div>
-        <div data-lab="" style="position:absolute;left:66px;top:-52px;width:max-content;max-width:min(230px,44vw);padding:9px 12px;background:rgba(20,10,4,0.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#FFF4E6;font-weight:400;font-size:11px;line-height:1.4;letter-spacing:0.16em;text-transform:uppercase;text-wrap:balance">{{ a.label }}</div>
+        <div data-lab="" style="position:absolute;left:66px;top:-52px;width:max-content;max-width:min(230px,44vw);padding:9px 12px;background:rgba(20,10,4,0.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#FFF4E6;font-weight:400;font-size:13px;line-height:1.35;text-wrap:balance">{{ a.label }}</div>
       </div>
     </sc-for>
 
-    <div data-l="states" style="position:absolute;right:clamp(18px,3.2vw,48px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:flex-end;gap:14px;color:var(--ink);transition:color 0.4s;font-weight:400;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;opacity:0;visibility:hidden">
-      <span data-st="0" style="display:flex;gap:10px;align-items:center;transition:opacity 0.3s">Целиком <span style="width:18px;height:1px;background:currentColor"></span> 01</span>
-      <span data-st="1" style="display:flex;gap:10px;align-items:center;transition:opacity 0.3s">Текстура <span style="width:18px;height:1px;background:currentColor"></span> 02</span>
-      <span data-st="2" style="display:flex;gap:10px;align-items:center;transition:opacity 0.3s">Начинка <span style="width:18px;height:1px;background:currentColor"></span> 03</span>
+    <div data-l="states" style="position:absolute;right:clamp(18px,3.2vw,48px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:flex-end;gap:14px;color:var(--ink);transition:color 0.4s;font-weight:400;font-size:12px;opacity:0;visibility:hidden">
+      <span data-st="0" style="transition:opacity 0.3s">Целиком</span>
+      <span data-st="1" style="transition:opacity 0.3s">Текстура</span>
+      <span data-st="2" style="transition:opacity 0.3s">Начинка</span>
     </div>
 
     <div data-veil="" style="position:absolute;inset:0;background:#1A0D06;opacity:0;pointer-events:none"></div>
@@ -151,7 +149,7 @@ a:hover{color:#C9772F}
           <span style="font-weight:400;font-size:11px;letter-spacing:0.2em;text-transform:uppercase">Меню</span>
           <span style="font-weight:500;font-size:clamp(48px,7vw,112px);line-height:0.86;letter-spacing:-0.055em">Три главных вкуса</span>
           <div style="display:flex;flex-wrap:wrap;gap:10px;padding-top:14px">
-            <a href="{{ menuUrl }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;padding:18px 26px;min-height:44px;box-sizing:border-box;border-radius:999px;background:#1A0D06;color:#F4EADC;font-weight:400;font-size:12px;letter-spacing:0.2em" style-hover="background:#C9772F;color:#1A0D06">ПОСМОТРЕТЬ ВСЁ МЕНЮ <span style="letter-spacing:0">↗</span></a>
+            <a href="{{ menuUrl }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;padding:18px 26px;min-height:44px;box-sizing:border-box;border-radius:999px;background:#1A0D06;color:#F4EADC;font-weight:400;font-size:14px" style-hover="background:#C9772F;color:#1A0D06">Посмотреть всё меню</a>
           </div>
         </div>
         <div style="display:flex;flex-direction:column">
@@ -171,9 +169,9 @@ a:hover{color:#C9772F}
     </div>
 
     <div data-l="s06" style="position:absolute;left:0;right:0;bottom:0;padding:clamp(20px,3.2vw,48px) clamp(20px,3.2vw,48px) clamp(84px,10vh,112px);display:flex;flex-wrap:wrap;gap:clamp(16px,2vw,32px);align-items:flex-end;color:#FFF4E6;opacity:0;visibility:hidden">
-      <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:10px"><span style="font-weight:400;font-size:10px;letter-spacing:0.2em;text-transform:uppercase">Три главных вкуса</span><span style="font-weight:500;font-size:clamp(28px,3.4vw,52px);line-height:0.92;letter-spacing:-0.04em;text-wrap:balance">Заберите тёплым</span></div>
+      <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:10px"><span style="font-weight:400;font-size:12px">Три главных вкуса</span><span style="font-weight:500;font-size:clamp(28px,3.4vw,52px);line-height:0.92;letter-spacing:-0.04em;text-wrap:balance">Заберите тёплым</span></div>
       <div style="flex:none;display:none;flex-wrap:nowrap;gap:8px">
-        <a href="#" style="display:flex;align-items:center;justify-content:center;gap:12px;padding:18px 30px;min-height:44px;box-sizing:border-box;border-radius:999px;background:#FFF4E6;color:#1A0D06;font-weight:400;font-size:12px;letter-spacing:0.22em" style-hover="background:#1A0D06;color:#FFF4E6">ЗАКАЗАТЬ <span style="letter-spacing:0">→</span></a>
+        <a href="#" style="display:flex;align-items:center;justify-content:center;gap:12px;padding:18px 30px;min-height:44px;box-sizing:border-box;border-radius:999px;background:#FFF4E6;color:#1A0D06;font-weight:400;font-size:12px;letter-spacing:0.22em" style-hover="background:#1A0D06;color:#FFF4E6">ЗАКАЗАТЬ</a>
         <a href="{{ menuUrl }}" target="_blank" rel="noopener" style="display:flex;align-items:center;padding:18px 22px;min-height:44px;box-sizing:border-box;border-radius:999px;border:1px solid #FFF4E6;font-weight:400;font-size:12px;letter-spacing:0.22em" style-hover="background:#FFF4E6;color:#1A0D06">МЕНЮ</a>
       </div>
     </div>
@@ -191,8 +189,8 @@ a:hover{color:#C9772F}
 
   <div style="position:fixed;left:0;right:0;bottom:0;padding:clamp(18px,2.6vw,36px) clamp(20px,3.2vw,48px);display:flex;justify-content:space-between;align-items:flex-end;gap:16px;pointer-events:none;color:var(--ink);transition:color 0.4s">
     <div style="margin-left:auto;display:flex;align-items:center;gap:20px;padding-bottom:10px">
-      <div data-l="hint" style="display:flex;align-items:center;gap:12px;font-weight:400;font-size:10px;letter-spacing:0.22em;opacity:0;visibility:hidden">ЛИСТАЙТЕ <span style="width:40px;height:1px;background:currentColor"></span></div>
-      <span data-count="" style="font-weight:400;font-size:10px;letter-spacing:0.22em">01 / 13</span>
+      <div data-l="hint" style="display:flex;align-items:center;gap:12px;font-weight:400;font-size:12px;opacity:0;visibility:hidden">Листайте <span style="width:40px;height:1px;background:currentColor"></span></div>
+      <span data-count="" style="font-weight:400;font-size:11px;font-variant-numeric:tabular-nums;white-space:pre"> 1 / 13</span>
     </div>
     <div style="position:absolute;right:clamp(20px,3.2vw,48px);bottom:clamp(12px,1.6vw,22px);width:120px;height:1px">
       <div style="position:absolute;inset:0;background:currentColor;opacity:0.25"></div>
@@ -460,7 +458,7 @@ class Component extends DCLogic {
     const ink = (p > 0.775 && p < 0.885) ? '#1A0D06' : '#FFF4E6';
     if (ink !== this._ink) { this._ink = ink; root.style.setProperty('--ink', ink); }
     if (this.prog) this.prog.style.transform = `scaleX(${p.toFixed(4)})`;
-    if (this._beat !== this.beat) { this._beat = this.beat; const c = root.querySelector('[data-count]'); if (c) c.textContent = String(this.beat + 1).padStart(2, '0') + ' / ' + String(this.BEATS.length).padStart(2, '0'); }
+    if (this._beat !== this.beat) { this._beat = this.beat; const c = root.querySelector('[data-count]'); if (c) c.textContent = String(this.beat + 1).padStart(2, '\u2007') + ' / ' + this.BEATS.length; }
     const st = p < 0.61 ? 0 : p < 0.69 ? 1 : 2;
     if (st !== this._st) { this._st = st; this.stEls.forEach((el, i) => { el.style.opacity = i === st ? '1' : '0.35'; }); }
     if (this._annoSel !== sel) { this._annoSel = sel; this.annoEls = null; }
@@ -472,14 +470,14 @@ class Component extends DCLogic {
         a.set = true; a.el.style.left = d.x + '%'; a.el.style.top = d.y + '%';
         const flip = d.x > (this.mob ? 50 : 55); a.line.style.transform = flip ? 'rotate(-152deg)' : 'rotate(-28deg)';
         Object.assign(a.lab.style, flip ? { left: 'auto', right: '66px', textAlign: 'right' } : { left: '66px', right: 'auto', textAlign: 'left' });
-        if (this.mob) Object.assign(a.lab.style, { fontSize: '10px', letterSpacing: '0.1em', padding: '7px 10px', maxWidth: 'min(200px,56vw)' });
+        if (this.mob) Object.assign(a.lab.style, { fontSize: '12px', padding: '7px 10px', maxWidth: 'min(200px,56vw)' });
         a.lab.style.transform = '';
         const r = a.lab.getBoundingClientRect(), pad = 12;
         const dx = r.left < pad ? pad - r.left : r.right > innerWidth - pad ? innerWidth - pad - r.right : 0;
         const dy = r.top < pad + 48 ? pad + 48 - r.top : r.bottom > innerHeight - pad - 48 ? innerHeight - pad - 48 - r.bottom : 0;
         if (dx || dy) a.lab.style.transform = `translate(${dx.toFixed(0)}px,${dy.toFixed(0)}px)`;
       }
-      const o = d.tex ? sm(0.635, 0.65, p) * (1 - sm(0.67, 0.685, p)) : sm(0.715 + d.k * 0.008, 0.73 + d.k * 0.008, p) * (1 - sm(0.752, 0.766, p));
+      const o = d.tex ? sm(0.635, 0.65, p) * (1 - sm(0.67, 0.685, p)) : sm(0.715 + d.k * 0.003, 0.73 + d.k * 0.003, p) * (1 - sm(0.752, 0.766, p));
       a.el.style.opacity = o.toFixed(3); a.el.style.visibility = o < 0.01 ? 'hidden' : 'visible';
     });
   }
@@ -495,7 +493,7 @@ class Component extends DCLogic {
     const pick = i => () => { if (!(this.props.assets ?? true) || this.pS > 0.5 || true) this.select(i); };
     return {
       rootRef: this.rootRef, spacerH: len,
-      selIdx: String(s.sel + 1).padStart(2, '0'), selTitle: P.title, selDesc: P.desc,
+      selIdx: String(s.sel + 1), selTitle: P.title, selDesc: P.desc,
       bgO0: s.sel === 0 ? 1 : 0, bgO1: s.sel === 1 ? 1 : 0, bgO2: s.sel === 2 ? 1 : 0,
       annos: this.annoList(s.sel),
       products: this.PRODUCTS.map((p, i) => ({ name: p.name, pick: () => this.select(i), bg: i === s.sel ? '#FFF4E6' : 'transparent', fg: i === s.sel ? '#1A0D06' : '#FFF4E6' })),
