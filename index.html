@@ -80,13 +80,13 @@ a:hover{color:#C9772F}
     </div>
 
     <div data-l="crack" style="position:absolute;left:50%;top:50%;width:115vw;height:115vh;color:#FFF4E6;background:#3A1A10;opacity:0;visibility:hidden;will-change:transform,opacity,filter">
-      <img src="img/v5-crack.webp" alt="" draggable="false" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+      <img data-src="img/v5-crack.webp" data-at="1" alt="" draggable="false" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
       <video src="media/crack.mp4" poster="img/v5-crack.webp" muted="" loop="" playsinline="" preload="none" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none"></video>
     </div>
     <div data-l="crackRim" style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%, #1A0D06 0%, #0A0203 70%);opacity:0;visibility:hidden"></div>
     <div data-l="interior" style="position:absolute;inset:0;overflow:hidden;opacity:0;visibility:hidden">
       <div data-l="interiorImg" style="position:absolute;left:50%;top:50%;width:115vw;height:115vh;color:#FFF4E6;background:#2A0E08;will-change:transform,filter">
-        <img src="img/v5-interior.webp" alt="" draggable="false" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        <img data-src="img/v5-interior.webp" data-at="1" alt="" draggable="false" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
         <video src="media/interior.mp4" poster="img/v5-interior.webp" muted="" loop="" playsinline="" preload="none" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none"></video>
       </div>
     </div>
@@ -100,19 +100,19 @@ a:hover{color:#C9772F}
       <span style="font-weight:500;font-size:max(3vw,18px);letter-spacing:-0.03em;line-height:0.9">ФИСТАШКА</span>
     </div>
     <div data-l="p2" onClick="{{ pick2 }}" onPointerEnter="{{ hov2 }}" onPointerLeave="{{ unhov }}" style="position:absolute;left:50%;top:50%;width:max(60vmin,min(80vw,40vh));height:max(60vmin,min(80vw,40vh));color:#FFF4E6;opacity:0;visibility:hidden;will-change:transform,opacity,filter">
-      <img fetchpriority="low" decoding="async" src="img/v5-p2.webp" alt="Фисташка" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3vmin 4vmin rgba(10,14,4,0.45))">
+      <img fetchpriority="low" decoding="async" data-src="img/v5-p2.webp" data-at="2" alt="Фисташка" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3vmin 4vmin rgba(10,14,4,0.45))">
     </div>
     <div data-l="n1" onClick="{{ pick1 }}" style="position:absolute;left:50%;top:50%;display:flex;flex-direction:column;align-items:center;gap:10px;width:max-content;color:#FFF4E6;pointer-events:auto;cursor:pointer;opacity:0;visibility:hidden" onClick="{{ pick1 }}">
       <span style="font-weight:500;font-size:max(5.4vw,26px);letter-spacing:-0.045em;line-height:0.9">КЛУБНИКА</span>
     </div>
     <div data-l="p1" onClick="{{ pick1 }}" onPointerEnter="{{ hov1 }}" onPointerLeave="{{ unhov }}" style="position:absolute;left:50%;top:50%;width:max(60vmin,min(80vw,40vh));height:max(60vmin,min(80vw,40vh));color:#FFF4E6;opacity:0;visibility:hidden;will-change:transform,opacity,filter">
-      <img fetchpriority="low" decoding="async" src="img/v5-p1.webp" alt="Клубника" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3vmin 4vmin rgba(20,10,4,0.45))">
+      <img fetchpriority="low" decoding="async" data-src="img/v5-p1.webp" data-at="2" alt="Клубника" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3vmin 4vmin rgba(20,10,4,0.45))">
     </div>
     <div data-l="n0" onClick="{{ pick0 }}" style="position:absolute;left:50%;top:50%;display:flex;flex-direction:column;align-items:center;gap:12px;width:max-content;color:#FFF4E6;pointer-events:auto;cursor:pointer;opacity:0;visibility:hidden" onClick="{{ pick0 }}">
       <span style="font-weight:500;font-size:max(9vw,44px);letter-spacing:-0.055em;line-height:0.84">ШОКОЛАД</span>
     </div>
     <div data-l="p0" onClick="{{ pick0 }}" onPointerEnter="{{ hov0 }}" onPointerLeave="{{ unhov }}" style="position:absolute;left:50%;top:50%;width:max(60vmin,min(80vw,40vh));height:max(60vmin,min(80vw,40vh));color:#FFF4E6;opacity:0;visibility:hidden;will-change:transform,opacity,filter">
-      <img fetchpriority="low" decoding="async" src="img/v5-p0.webp" alt="Двойной шоколад" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3vmin 4vmin rgba(0,0,0,0.55))">
+      <img fetchpriority="low" decoding="async" data-src="img/v5-p0.webp" data-at="2" alt="Двойной шоколад" draggable="false" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3vmin 4vmin rgba(0,0,0,0.55))">
     </div>
 
     <div data-l="whole" style="position:absolute;left:50%;top:50%;width:max(min(86vw,300px),min(34vw,440px));display:flex;flex-direction:column;gap:18px;color:var(--ink);transition:color 0.4s;opacity:0;visibility:hidden">
@@ -122,22 +122,22 @@ a:hover{color:#C9772F}
     </div>
 
     <div data-l="tx0" style="position:absolute;left:50%;top:50%;width:115vw;height:115vh;color:#FFF4E6;background:#241009;opacity:0;visibility:hidden;will-change:transform,opacity,filter">
-      <img src="img/v5-tx0.webp" alt="" draggable="false" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+      <img data-src="img/v5-tx0.webp" data-at="3" alt="" draggable="false" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
     </div>
     <div data-l="tx1" style="position:absolute;left:50%;top:50%;width:115vw;height:115vh;color:#FFF4E6;background:#241009;opacity:0;visibility:hidden;will-change:transform,opacity,filter">
-      <img src="img/v5-tx1.webp" alt="" draggable="false" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+      <img data-src="img/v5-tx1.webp" data-at="6" alt="" draggable="false" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
     </div>
     <div data-l="tx2" style="position:absolute;left:50%;top:50%;width:115vw;height:115vh;color:#FFF4E6;background:#3A220F;opacity:0;visibility:hidden;will-change:transform,opacity,filter">
-      <img src="img/v5-tx2.webp" alt="" draggable="false" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+      <img data-src="img/v5-tx2.webp" data-at="9" alt="" draggable="false" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
     </div>
     <div data-l="fl0" style="position:absolute;left:50%;top:50%;width:115vw;height:115vh;color:#FFF4E6;background:#2A1A16;opacity:0;visibility:hidden;will-change:transform,opacity,filter">
-      <img src="img/v5-fl0.webp" alt="" draggable="false" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+      <img data-src="img/v5-fl0.webp" data-at="4" alt="" draggable="false" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
     </div>
     <div data-l="fl1" style="position:absolute;left:50%;top:50%;width:115vw;height:115vh;color:#FFF4E6;background:#3A0F1C;opacity:0;visibility:hidden;will-change:transform,opacity,filter">
-      <img src="img/v5-fl1.webp" alt="" draggable="false" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+      <img data-src="img/v5-fl1.webp" data-at="7" alt="" draggable="false" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
     </div>
     <div data-l="fl2" style="position:absolute;left:50%;top:50%;width:115vw;height:115vh;color:#FFF4E6;background:#2E1609;opacity:0;visibility:hidden;will-change:transform,opacity,filter">
-      <img src="img/v5-fl2.webp" alt="" draggable="false" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+      <img data-src="img/v5-fl2.webp" data-at="10" alt="" draggable="false" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
     </div>
 
     <sc-for list="{{ annos }}" as="a">
@@ -169,7 +169,7 @@ a:hover{color:#C9772F}
           <sc-for list="{{ menu }}" as="m">
             <div style="display:grid;grid-template-columns:clamp(64px,7vw,104px) minmax(0,1fr) auto;gap:clamp(14px,1.6vw,24px);align-items:center;padding:clamp(14px,2.2vh,22px) 0;border-top:1px solid rgba(26,13,6,0.9)">
               <div style="width:clamp(64px,7vw,104px);height:clamp(64px,7vw,104px);color:#1A0D06">
-                <sc-if value="{{ m.i0 }}"><img fetchpriority="low" decoding="async" src="img/v5-m0.webp" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></sc-if><sc-if value="{{ m.i1 }}"><img fetchpriority="low" decoding="async" src="img/v5-m1.webp" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></sc-if><sc-if value="{{ m.i2 }}"><img fetchpriority="low" decoding="async" src="img/v5-m2.webp" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></sc-if>
+                <sc-if value="{{ m.i0 }}"><img fetchpriority="low" decoding="async" data-src="img/v5-m0.webp" data-at="11" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></sc-if><sc-if value="{{ m.i1 }}"><img fetchpriority="low" decoding="async" data-src="img/v5-m1.webp" data-at="11" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></sc-if><sc-if value="{{ m.i2 }}"><img fetchpriority="low" decoding="async" data-src="img/v5-m2.webp" data-at="11" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></sc-if>
               </div>
               <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
                 <span style="font-weight:500;font-size:clamp(22px,2.2vw,34px);line-height:0.95;letter-spacing:-0.04em">{{ m.title }}</span>
@@ -242,13 +242,14 @@ class Component extends DCLogic {
     this.startVideos = () => document.querySelectorAll('video').forEach(v => { v.muted = true; v.defaultMuted = true; v.playsInline = true; if (v.paused) v.play().catch(() => {}); });
     // Видео и прогрев картинок следующих сцен стартуют после главного фото первого экрана (см. afterHero ниже):
     // раньше всё грузилось одновременно с ним и делило канал.
-    this.unlock = () => { afterHero(); this.startVideos(); }; ['touchstart', 'click', 'keydown'].forEach(e => addEventListener(e, this.unlock, { passive: true }));
-    this.onVis = () => { if (!document.hidden) this.startVideos(); }; document.addEventListener('visibilitychange', this.onVis);
+    this.unlock = () => { afterHero(); this.startVideos(); if (!this.vidT) this.vidT = setInterval(this.startVideos, 1500); }; ['touchstart', 'click', 'keydown', 'wheel'].forEach(e => addEventListener(e, this.unlock, { passive: true }));
+    this.onVis = () => { if (!document.hidden && this.vidT) this.startVideos(); }; document.addEventListener('visibilitychange', this.onVis);
     const afterHero = () => {
       if (this._warm) return; this._warm = true;
-      this.startVideos(); this.vidT = setInterval(this.startVideos, 1500);
-      const pre = []; document.querySelectorAll('img[src]').forEach(s => { const im = new Image(); im.decoding = 'async'; im.src = s.getAttribute('src'); im.decode().catch(() => {}); pre.push(im); }); this._pre = pre;
+      this.warm();
     };
+    // Картинки сцен подставляются за два кадра до показа; видео стартуют с первым действием посетителя.
+    this.warm = () => { if (!this._warm) return; root.querySelectorAll('img[data-src]').forEach(im => { if (+im.dataset.at <= this.beat + 2) { im.src = im.dataset.src; im.removeAttribute('data-src'); } }); };
     const heroIm = new Image(); heroIm.onload = heroIm.onerror = afterHero; heroIm.src = 'img/v5-hero.webp';
     this.heroT = setTimeout(afterHero, 4000);
     this.beat = 0; this.anim = null; this.lastWheel = 0; this.armed = true; this.acc = 0;
@@ -288,7 +289,7 @@ class Component extends DCLogic {
     requestAnimationFrame(() => requestAnimationFrame(() => { const c = document.getElementById('cover'); if (c) c.classList.add('done'); }));
   }
   componentWillUnmount() {
-    cancelAnimationFrame(this.raf); clearInterval(this.vidT); ['touchstart', 'click', 'keydown'].forEach(e => removeEventListener(e, this.unlock)); document.removeEventListener('visibilitychange', this.onVis); removeEventListener('pointermove', this.onMove); removeEventListener('resize', this.onResize);
+    cancelAnimationFrame(this.raf); clearInterval(this.vidT); ['touchstart', 'click', 'keydown', 'wheel'].forEach(e => removeEventListener(e, this.unlock)); document.removeEventListener('visibilitychange', this.onVis); removeEventListener('pointermove', this.onMove); removeEventListener('resize', this.onResize);
     removeEventListener('wheel', this.onWheel); removeEventListener('touchstart', this.onTouchStart); removeEventListener('touchmove', this.onTouchMove); removeEventListener('touchend', this.onTouchEnd); removeEventListener('keydown', this.onKey);
     document.documentElement.style.overflow = ''; document.body.style.overflow = '';
   }
@@ -301,6 +302,7 @@ class Component extends DCLogic {
     const dir = Math.sign(i - this.beat) || 1;
     this.beat = i;
     dispatchEvent(new CustomEvent('concept:final', { detail: i === this.BEATS.length - 1 }));
+    this.warm();
     if (B.s != null && cur.s != null && B.s !== cur.s) { this.anim = null; this.slide = { t0: performance.now(), dur: base * 1.25, B, dir, swapped: false }; return; }
     if ((cur.p === 0.33 && B.p === 0.57) || (cur.p === 0.57 && B.p === 0.33 && cur.s != null)) { this.anim = null; this.dip = { t0: performance.now(), dur: base * 1.1, B, swapped: false }; return; }
     if (B.s != null && B.s !== this.state.sel) this.sel = B.s, this.setState({ sel: B.s });
