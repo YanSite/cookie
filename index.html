@@ -265,7 +265,11 @@ class Component extends DCLogic {
       const ck = this.BEATS[this.beat].s != null;
       const rise = ck ? (this.decay >= 2 && ad > Math.max(la * 1.6 + 4, 10) && now - (this.lastStepT || 0) > 200)
                       : (this.decay >= 4 && ad > Math.max(la * 2.5, 24) && now - (this.lastStepT || 0) > 350);
-      if (gap > (ck ? 110 : 160) || rise) { this.armed = true; this.acc = 0; this.decay = 0; }
+      // Колесо мыши шлёт ровные щелчки без пауз и без затухания: когда переход закончен,
+      // следующий щелчок листает дальше (инерция трекпада только затухает и сюда не попадает).
+      const idle = !this.anim && !this.dip && !this.slide && now - (this.lastStepT || 0) > 450;
+      this.steady = idle && ad >= la && ad >= 16 ? (this.steady || 0) + ad : 0;
+      if (gap > (ck ? 110 : 160) || rise || this.steady > 50) { this.armed = true; this.acc = 0; this.decay = 0; this.steady = 0; }
       const late = this.anim && (performance.now() - this.anim.t0) > this.anim.dur * 0.45;
       if (!this.armed) return;
       if (this.dip || this.slide || (this.anim && !late)) { if (now - (this.lastStepT || 0) > (ck ? 200 : 350)) this.queued = Math.sign(dy); this.armed = false; this.decay = 0; this.lastStepT = now; return; }
