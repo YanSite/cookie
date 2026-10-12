@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0E0604">
-<style>html,body{margin:0;background:#0E0604}</style>
+<style>html,body{margin:0;background:#0E0604}
+concept-card{--cc-font:'Geologica',system-ui,sans-serif}
+@media (min-aspect-ratio:4/5){concept-card{--cc-bottom:auto;--cc-top:clamp(2px,calc(2.6vw - 16px),20px);--cc-left:calc(clamp(20px,3.2vw,48px) + 132px)}}</style>
 <link rel="preload" href="img/v5-hero.webp" as="image" fetchpriority="high">
 <script>window.__resources={"https://unpkg.com/react@18.3.1/umd/react.production.min.js":"./vendor/react.production.min.js","https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js":"./vendor/react-dom.production.min.js"};</script>
 <script src="./support.js"></script>
-<title>Мега Куки</title>
+<title>Мега Куки — Концепт сайта пекарни · Есть что показать</title>
 </head>
 <body>
 <template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#C9772F"/><circle cx="50" cy="50" r="20" fill="#4A2410"/></svg></template>
@@ -293,6 +295,7 @@ class Component extends DCLogic {
     const B = this.BEATS[i], cur = this.BEATS[this.beat], base = (this.props.pace ?? 0.75) * 1000;
     const dir = Math.sign(i - this.beat) || 1;
     this.beat = i;
+    dispatchEvent(new CustomEvent('concept:final', { detail: i === this.BEATS.length - 1 }));
     if (B.s != null && cur.s != null && B.s !== cur.s) { this.anim = null; this.slide = { t0: performance.now(), dur: base * 1.25, B, dir, swapped: false }; return; }
     if ((cur.p === 0.33 && B.p === 0.57) || (cur.p === 0.57 && B.p === 0.33 && cur.s != null)) { this.anim = null; this.dip = { t0: performance.now(), dur: base * 1.1, B, swapped: false }; return; }
     if (B.s != null && B.s !== this.state.sel) this.sel = B.s, this.setState({ sel: B.s });
@@ -513,5 +516,6 @@ class Component extends DCLogic {
   }
 }
 </script>
+<script src="concept-card.js" defer data-category="пекарня" data-tone="dark" data-position="bl" data-order='a[href="#"]:not([target])' data-plain='a[href="#"][target]'></script>
 </body>
 </html>
