@@ -1,24 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0E0604">
 <style>html,body{margin:0;background:#0E0604}
+x-dc{display:none}
+#cover{position:fixed;inset:0;z-index:9;overflow:hidden;pointer-events:none;background:radial-gradient(ellipse 80% 70% at 62% 40%, #E9A35C 0%, #C9772F 38%, #9A5220 70%, #4A2410 100%);font-family:'Geologica',system-ui,sans-serif;color:#FFF4E6;transition:opacity .5s ease,visibility 0s .5s}
+#cover.done{opacity:0;visibility:hidden}
+#cover b{position:absolute;left:50%;top:50%;width:max-content;display:flex;flex-direction:column;align-items:flex-start;font-weight:500;font-size:min(22vw,18vh);line-height:.84;letter-spacing:-.055em;transform:translate(-50%,-50%) translate(-27vw,-4vh)}
+#cover img{position:absolute;left:50%;top:50%;width:max(100vmin,min(130vw,62vh));height:max(100vmin,min(130vw,62vh));object-fit:contain;filter:drop-shadow(0 4vmin 5vmin rgba(40,16,4,.45));transform:translate(-50%,-50%) translate(21vw,4vh) scale(.9)}
+@media (max-aspect-ratio:4/5){#cover b{transform:translate(-50%,-50%) translate(-8vw,-28vh)}#cover img{transform:translate(-50%,-50%) translate(6vw,16vh)}}
+@media (prefers-reduced-motion:reduce){#cover{transition:none}}
 concept-card{--cc-font:'Geologica',system-ui,sans-serif}
 @media (min-aspect-ratio:4/5){concept-card{--cc-bottom:auto;--cc-top:clamp(2px,calc(2.6vw - 16px),20px);--cc-left:calc(clamp(20px,3.2vw,48px) + 132px)}}</style>
 <link rel="preload" href="img/v5-hero.webp" as="image" fetchpriority="high">
+<link rel="stylesheet" href="fonts/fonts.css">
 <script>window.__resources={"https://unpkg.com/react@18.3.1/umd/react.production.min.js":"./vendor/react.production.min.js","https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js":"./vendor/react-dom.production.min.js"};</script>
 <script src="./support.js"></script>
 <title>Мега Куки — Концепт сайта пекарни · Есть что показать</title>
 </head>
 <body>
 <template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#C9772F"/><circle cx="50" cy="50" r="20" fill="#4A2410"/></svg></template>
+<div id="cover" aria-hidden="true"><b><span>МЕГА</span><span>КУКИ</span><span style="display:flex;align-items:center;gap:14px;margin-top:clamp(18px,3vh,32px);font-weight:400;font-size:clamp(10px,0.8vw,12px);line-height:1;letter-spacing:0.22em"><span style="width:32px;height:1px;background:currentColor"></span>ШОКОЛАД · КЛУБНИКА · ФИСТАШКА</span></b><img src="img/v5-hero.webp" alt=""></div>
 <x-dc>
 <helmet>
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="stylesheet" href="fonts/fonts.css">
-<script src="./image-slot.js"></script>
 <style>
 html,body{margin:0;padding:0;background:#0E0604;overscroll-behavior:none}
 body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
@@ -62,13 +69,13 @@ a:hover{color:#C9772F}
     </div>
 
     <div data-l="crack" style="position:absolute;left:50%;top:50%;width:115vw;height:115vh;color:#FFF4E6;background:#3A1A10;opacity:0;visibility:hidden;will-change:transform,opacity,filter">
-      <image-slot id="v5-crack" shape="rect" src="img/v5-crack.webp" placeholder="A02 · HIGGSFIELD · Макро трещины на печёной поверхности"></image-slot>
+      <img src="img/v5-crack.webp" alt="" draggable="false" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
       <video src="media/crack.mp4" poster="img/v5-crack.webp" muted="" loop="" playsinline="" preload="none" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none"></video>
     </div>
     <div data-l="crackRim" style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%, #1A0D06 0%, #0A0203 70%);opacity:0;visibility:hidden"></div>
     <div data-l="interior" style="position:absolute;inset:0;overflow:hidden;opacity:0;visibility:hidden">
       <div data-l="interiorImg" style="position:absolute;left:50%;top:50%;width:115vw;height:115vh;color:#FFF4E6;background:#2A0E08;will-change:transform,filter">
-        <image-slot id="v5-interior" shape="rect" src="img/v5-interior.webp" placeholder="A03 · Разлом изнутри: шоколад, мякиш, тёплый контровой свет"></image-slot>
+        <img src="img/v5-interior.webp" alt="" draggable="false" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
         <video src="media/interior.mp4" poster="img/v5-interior.webp" muted="" loop="" playsinline="" preload="none" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none"></video>
       </div>
     </div>
@@ -104,25 +111,25 @@ a:hover{color:#C9772F}
     </div>
 
     <div data-l="tx0" style="position:absolute;left:50%;top:50%;width:115vw;height:115vh;color:#FFF4E6;background:#241009;opacity:0;visibility:hidden;will-change:transform,opacity,filter">
-      <image-slot id="v5-tx0" shape="rect" src="img/v5-tx0.webp" placeholder="A08 · Двойной шоколад: текстура"></image-slot>
+      <img src="img/v5-tx0.webp" alt="" draggable="false" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
     </div>
     <div data-l="tx1" style="position:absolute;left:50%;top:50%;width:115vw;height:115vh;color:#FFF4E6;background:#241009;opacity:0;visibility:hidden;will-change:transform,opacity,filter">
-      <image-slot id="v5-tx1" shape="rect" src="img/v5-tx1.webp" placeholder="A09 · Клубника: текстура"></image-slot>
+      <img src="img/v5-tx1.webp" alt="" draggable="false" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
     </div>
     <div data-l="tx2" style="position:absolute;left:50%;top:50%;width:115vw;height:115vh;color:#FFF4E6;background:#3A220F;opacity:0;visibility:hidden;will-change:transform,opacity,filter">
-      <image-slot id="v5-tx2" shape="rect" src="img/v5-tx2.webp" placeholder="A10 · Фисташка: текстура"></image-slot>
+      <img src="img/v5-tx2.webp" alt="" draggable="false" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
     </div>
     <div data-l="fl0" style="position:absolute;left:50%;top:50%;width:115vw;height:115vh;color:#FFF4E6;background:#2A1A16;opacity:0;visibility:hidden;will-change:transform,opacity,filter">
-      <image-slot id="v5-fl0" shape="rect" src="img/v5-fl0.webp" placeholder="A11 · Двойной шоколад: начинка"></image-slot>
+      <img src="img/v5-fl0.webp" alt="" draggable="false" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
     </div>
     <div data-l="fl1" style="position:absolute;left:50%;top:50%;width:115vw;height:115vh;color:#FFF4E6;background:#3A0F1C;opacity:0;visibility:hidden;will-change:transform,opacity,filter">
-      <image-slot id="v5-fl1" shape="rect" src="img/v5-fl1.webp" placeholder="A12 · Клубника: начинка"></image-slot>
+      <img src="img/v5-fl1.webp" alt="" draggable="false" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
     </div>
     <div data-l="fl2" style="position:absolute;left:50%;top:50%;width:115vw;height:115vh;color:#FFF4E6;background:#2E1609;opacity:0;visibility:hidden;will-change:transform,opacity,filter">
-      <image-slot id="v5-fl2" shape="rect" src="img/v5-fl2.webp" placeholder="A13 · Фисташка: начинка"></image-slot>
+      <img src="img/v5-fl2.webp" alt="" draggable="false" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
     </div>
 
-    <sc-for list="{{ annos }}" as="a" hint-placeholder-count="0">
+    <sc-for list="{{ annos }}" as="a">
       <div data-ai="{{ $index }}" style="position:absolute;left:0;top:0;opacity:0;visibility:hidden">
         <div style="position:absolute;left:-3px;top:-3px;width:6px;height:6px;border-radius:50%;background:#FFF4E6;box-shadow:0 0 0 6px rgba(244,234,226,0.14)"></div>
         <div data-line="" style="position:absolute;left:0;top:0;width:72px;height:1px;background:rgba(244,234,226,0.75);transform-origin:0 50%;transform:rotate(-28deg)"></div>
@@ -148,10 +155,10 @@ a:hover{color:#C9772F}
           </div>
         </div>
         <div style="display:flex;flex-direction:column">
-          <sc-for list="{{ menu }}" as="m" hint-placeholder-count="3">
+          <sc-for list="{{ menu }}" as="m">
             <div style="display:grid;grid-template-columns:clamp(64px,7vw,104px) minmax(0,1fr) auto;gap:clamp(14px,1.6vw,24px);align-items:center;padding:clamp(14px,2.2vh,22px) 0;border-top:1px solid rgba(26,13,6,0.9)">
               <div style="width:clamp(64px,7vw,104px);height:clamp(64px,7vw,104px);color:#1A0D06">
-                <sc-if value="{{ m.i0 }}" hint-placeholder-val="{{ false }}"><img fetchpriority="low" decoding="async" src="img/v5-m0.webp" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></sc-if><sc-if value="{{ m.i1 }}" hint-placeholder-val="{{ false }}"><img fetchpriority="low" decoding="async" src="img/v5-m1.webp" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></sc-if><sc-if value="{{ m.i2 }}" hint-placeholder-val="{{ false }}"><img fetchpriority="low" decoding="async" src="img/v5-m2.webp" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></sc-if>
+                <sc-if value="{{ m.i0 }}"><img fetchpriority="low" decoding="async" src="img/v5-m0.webp" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></sc-if><sc-if value="{{ m.i1 }}"><img fetchpriority="low" decoding="async" src="img/v5-m1.webp" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></sc-if><sc-if value="{{ m.i2 }}"><img fetchpriority="low" decoding="async" src="img/v5-m2.webp" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></sc-if>
               </div>
               <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
                 <span style="font-weight:500;font-size:clamp(22px,2.2vw,34px);line-height:0.95;letter-spacing:-0.04em">{{ m.title }}</span>
@@ -171,19 +178,13 @@ a:hover{color:#C9772F}
       </div>
     </div>
 
-    <div data-grain="" style="position:absolute;inset:-60px;opacity:0.13;mix-blend-mode:overlay;background-image:url(&quot;data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;)"></div>
+    <div data-grain="" style="position:absolute;inset:-60px;opacity:0.13;mix-blend-mode:overlay"></div>
     <div style="position:absolute;inset:0;background:radial-gradient(130% 100% at 50% 45%, rgba(0,0,0,0) 55%, rgba(20,8,2,0.38) 100%)"></div>
   </div>
 
   <div style="position:fixed;left:0;right:0;top:0;padding:clamp(18px,2.6vw,36px) clamp(20px,3.2vw,48px);display:flex;justify-content:space-between;align-items:flex-start;gap:16px;pointer-events:none;color:var(--ink);transition:color 0.4s">
     <div style="display:flex;flex-direction:column;gap:14px">
       <span data-l="brand" style="font-weight:500;font-size:12px;letter-spacing:0.24em;opacity:0;visibility:hidden">МЕГА КУКИ</span>
-      <sc-if value="{{ production }}" hint-placeholder-val="{{ true }}">
-        <div style="display:flex;flex-direction:column;gap:4px;max-width:min(360px,62vw);font-weight:400;font-size:9px;line-height:1.5;letter-spacing:0.14em;text-transform:uppercase;opacity:0.8">
-          <span data-scene="" style="font-weight:500">S01 · THE CRAVE</span>
-          <span data-sceneprod="">Higgsfield: A01 · Engine: свет, параллакс, типографика</span>
-        </div>
-      </sc-if>
     </div>
     <a data-l="order" href="#" style="display:none;font-weight:400;font-size:11px;letter-spacing:0.22em;padding:12px 0;pointer-events:auto;opacity:0;visibility:hidden">ЗАКАЗАТЬ</a>
   </div>
@@ -200,7 +201,7 @@ a:hover{color:#C9772F}
   </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;assets&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Производство&quot;},&quot;production&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Производство&quot;},&quot;parallax&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0,&quot;max&quot;:2,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Движение&quot;},&quot;pace&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.75,&quot;min&quot;:0.4,&quot;max&quot;:2,&quot;step&quot;:0.05,&quot;unit&quot;:&quot;с&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Движение&quot;},&quot;menuUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ссылки&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;assets&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Производство&quot;},&quot;parallax&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0,&quot;max&quot;:2,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Движение&quot;},&quot;pace&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.75,&quot;min&quot;:0.4,&quot;max&quot;:2,&quot;step&quot;:0.05,&quot;unit&quot;:&quot;с&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Движение&quot;},&quot;menuUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ссылки&quot;}}">
 class Component extends DCLogic {
   state = { sel: 0 };
   rootRef = React.createRef();
@@ -216,15 +217,6 @@ class Component extends DCLogic {
       tex: ['Фисташковое тесто, жареная фисташка', 56, 44],
       fill: [['Фисташковый крем', 48, 72], ['Жареная фисташка', 46, 28], ['Белый шоколад', 20, 86]] },
   ];
-  SCENES = [
-    [0, 'S01 · THE CRAVE', 'Higgsfield: A01 · Engine: свет, параллакс, типографика'],
-    [0.12, 'S02 · THE CRACK', 'Higgsfield: A02 A03 A04 · Engine: маска трещины, фокус, дымка'],
-    [0.34, 'S03 · THREE DESIRES', 'Higgsfield: A05 A06 A07 · Engine: глубина, перевод фокуса, дымка'],
-    [0.53, 'S04 · PRODUCT OBSESSION', 'Higgsfield: A05–A13 · Engine: переходы, фокус, аннотации'],
-    [0.77, 'S05 · MENU', 'Higgsfield: A14–A16 · Engine: DOM-слой'],
-    [0.89, 'S06 · VISIT / ORDER', 'Higgsfield: A01 · Engine: свет, типографика, CTA'],
-  ];
-
   componentDidMount() {
     this.pS = 0; this.cur = {}; this.hov = -1; this.ptr = { x: 0, y: 0 }; this.ptrS = { x: 0, y: 0 }; this.t = 0;
     this.reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -244,7 +236,7 @@ class Component extends DCLogic {
     const afterHero = () => {
       if (this._warm) return; this._warm = true;
       this.startVideos(); this.vidT = setInterval(this.startVideos, 1500);
-      const pre = []; document.querySelectorAll('image-slot[src], img[src]').forEach(s => { const im = new Image(); im.decoding = 'async'; im.src = s.getAttribute('src'); im.decode().catch(() => {}); pre.push(im); }); this._pre = pre;
+      const pre = []; document.querySelectorAll('img[src]').forEach(s => { const im = new Image(); im.decoding = 'async'; im.src = s.getAttribute('src'); im.decode().catch(() => {}); pre.push(im); }); this._pre = pre;
     };
     const heroIm = new Image(); heroIm.onload = heroIm.onerror = afterHero; heroIm.src = 'img/v5-hero.webp';
     this.heroT = setTimeout(afterHero, 4000);
@@ -281,6 +273,8 @@ class Component extends DCLogic {
     addEventListener('touchstart', this.onTouchStart, { passive: true }); addEventListener('touchmove', this.onTouchMove, { passive: false }); addEventListener('touchend', this.onTouchEnd, { passive: true });
     addEventListener('keydown', this.onKey);
     this.last = performance.now(); this.loop = this.loop.bind(this); this.raf = requestAnimationFrame(this.loop);
+    // Сцена готова: статичная обложка первого кадра гаснет.
+    requestAnimationFrame(() => requestAnimationFrame(() => { const c = document.getElementById('cover'); if (c) c.classList.add('done'); }));
   }
   componentWillUnmount() {
     cancelAnimationFrame(this.raf); clearInterval(this.vidT); ['touchstart', 'click', 'keydown'].forEach(e => removeEventListener(e, this.unlock)); document.removeEventListener('visibilitychange', this.onVis); removeEventListener('pointermove', this.onMove); removeEventListener('resize', this.onResize);
@@ -302,7 +296,7 @@ class Component extends DCLogic {
     const from = this.pS, to = B.p;
     this.anim = { from, to, t0: performance.now(), dur: base * (1 + Math.min(0.6, Math.abs(to - from) * 1.5)) };
   }
-  componentDidUpdate(pp, ps) { if (ps.sel !== this.state.sel) this.annoEls = null; }
+  componentDidUpdate(pp, ps) { if (!ps || ps.sel !== this.state.sel) this.annoEls = null; }
 
   sm(a, b, x) { let t = (x - a) / (b - a); t = t < 0 ? 0 : t > 1 ? 1 : t; return t * t * (3 - 2 * t); }
 
@@ -452,8 +446,7 @@ class Component extends DCLogic {
         const bq = Math.min(8, Math.round(c.b)); const f = (bq >= 1 ? `blur(${bq}px) ` : '') + (c.h > 0.01 ? `contrast(${(1 - c.h * 0.32).toFixed(3)}) brightness(${(1 - c.h * 0.12).toFixed(3)}) ` : '') + (hl > 0.01 ? `brightness(${(1 + hl * 0.08).toFixed(3)})` : '');
         const fv = f.trim() || 'none'; if (el.style.filter !== fv) el.style.filter = fv;
       }
-      const slotEl = el._slot === undefined ? (el._slot = el.querySelector('image-slot')) : el._slot;
-      const pe = L.int ? (c.o > 0.5 ? 'auto' : 'none') : slotEl ? (assets && c.o > 0.5 ? 'auto' : 'none') : null;
+      const pe = L.int ? (c.o > 0.5 ? 'auto' : 'none') : null;
       if (pe && el.style.pointerEvents !== pe) el.style.pointerEvents = pe;
     }
     const S3 = p > 0.37 && p < 0.53;
@@ -468,8 +461,6 @@ class Component extends DCLogic {
     if (ink !== this._ink) { this._ink = ink; root.style.setProperty('--ink', ink); }
     if (this.prog) this.prog.style.transform = `scaleX(${p.toFixed(4)})`;
     if (this._beat !== this.beat) { this._beat = this.beat; const c = root.querySelector('[data-count]'); if (c) c.textContent = String(this.beat + 1).padStart(2, '0') + ' / ' + String(this.BEATS.length).padStart(2, '0'); }
-    let sc = this.SCENES[0]; this.SCENES.forEach(s => { if (p >= s[0]) sc = s; });
-    if (sc !== this._sc) { this._sc = sc; const a = root.querySelector('[data-scene]'), b = root.querySelector('[data-sceneprod]'); if (a) a.textContent = sc[1]; if (b) b.textContent = sc[2]; }
     const st = p < 0.61 ? 0 : p < 0.69 ? 1 : 2;
     if (st !== this._st) { this._st = st; this.stEls.forEach((el, i) => { el.style.opacity = i === st ? '1' : '0.35'; }); }
     if (this._annoSel !== sel) { this._annoSel = sel; this.annoEls = null; }
@@ -503,12 +494,12 @@ class Component extends DCLogic {
     const len = '100vh';
     const pick = i => () => { if (!(this.props.assets ?? true) || this.pS > 0.5 || true) this.select(i); };
     return {
-      rootRef: this.rootRef, spacerH: len, production: this.props.production ?? false,
+      rootRef: this.rootRef, spacerH: len,
       selIdx: String(s.sel + 1).padStart(2, '0'), selTitle: P.title, selDesc: P.desc,
       bgO0: s.sel === 0 ? 1 : 0, bgO1: s.sel === 1 ? 1 : 0, bgO2: s.sel === 2 ? 1 : 0,
       annos: this.annoList(s.sel),
       products: this.PRODUCTS.map((p, i) => ({ name: p.name, pick: () => this.select(i), bg: i === s.sel ? '#FFF4E6' : 'transparent', fg: i === s.sel ? '#1A0D06' : '#FFF4E6' })),
-      menu: this.PRODUCTS.map((p, i) => ({ title: p.title, desc: p.desc, slot: ['v5-m0', 'v5-m1', 'v5-m2'][i], ph: ['A14', 'A15', 'A16'][i] + ' · Пэкшот', i0: i === 0, i1: i === 1, i2: i === 2 })),
+      menu: this.PRODUCTS.map((p, i) => ({ title: p.title, desc: p.desc, i0: i === 0, i1: i === 1, i2: i === 2 })),
       pick0: () => this.select(0), pick1: () => this.select(1), pick2: () => this.select(2),
       hov0: () => { this.hov = 0; }, hov1: () => { this.hov = 1; }, hov2: () => { this.hov = 2; }, unhov: () => { this.hov = -1; },
       menuUrl: this.props.menuUrl || '#',
