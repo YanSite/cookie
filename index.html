@@ -45,6 +45,8 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 a{color:inherit;text-decoration:none}
 a:hover{color:#C9772F}
 ::selection{background:#C9772F;color:#FFF4E6}
+/* Меню помещается в экран целиком (внутренней прокрутки нет): на невысоких экранах описание — в одну строку. */
+@media (max-height:640px){.m-desc{-webkit-line-clamp:1!important}}
 </style>
 </helmet>
 <div ref="{{ rootRef }}" style="position:relative;width:100%;font-family:'Geologica',system-ui,sans-serif;color:#FFF4E6;--ink:#FFF4E6">
@@ -156,24 +158,24 @@ a:hover{color:#C9772F}
 
     <div data-veil="" style="position:absolute;inset:0;background:#1A0D06;opacity:0;pointer-events:none"></div>
 
-    <div data-l="menu" style="position:absolute;left:50%;top:50%;width:100%;height:100%;overflow:auto;background:#F4EADC;color:#1A0D06;opacity:0;visibility:hidden">
-      <div style="box-sizing:border-box;min-height:100%;padding:clamp(72px,11vh,110px) clamp(20px,5vw,80px) clamp(28px,5vh,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(28px,5vw,96px);align-content:center">
-        <div style="display:flex;flex-direction:column;gap:18px">
+    <div data-l="menu" style="position:absolute;left:50%;top:50%;width:100%;height:100%;overflow:hidden;background:#F4EADC;color:#1A0D06;opacity:0;visibility:hidden">
+      <div style="box-sizing:border-box;height:100%;padding:clamp(60px,10vh,110px) clamp(20px,5vw,80px) clamp(48px,7vh,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:min(3.2vh,96px) clamp(28px,5vw,96px);align-content:center">
+        <div style="display:flex;flex-direction:column;gap:min(18px,2vh)">
           <span style="font-weight:400;font-size:11px;letter-spacing:0.2em;text-transform:uppercase">Меню</span>
-          <span style="font-weight:500;font-size:clamp(48px,7vw,112px);line-height:0.86;letter-spacing:-0.055em">Три главных вкуса</span>
-          <div style="display:flex;flex-wrap:wrap;gap:10px;padding-top:14px">
-            <a href="{{ menuUrl }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;padding:18px 26px;min-height:44px;box-sizing:border-box;border-radius:999px;background:#1A0D06;color:#F4EADC;font-weight:400;font-size:14px" style-hover="background:#C9772F;color:#1A0D06">Посмотреть всё меню</a>
+          <span style="font-weight:500;font-size:min(clamp(48px,7vw,112px),8.4vh);line-height:0.86;letter-spacing:-0.055em">Три главных вкуса</span>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;padding-top:min(14px,1vh)">
+            <a href="{{ menuUrl }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;padding:12px 24px;min-height:44px;box-sizing:border-box;border-radius:999px;background:#1A0D06;color:#F4EADC;font-weight:400;font-size:14px" style-hover="background:#C9772F;color:#1A0D06">Посмотреть всё меню</a>
           </div>
         </div>
         <div style="display:flex;flex-direction:column">
           <sc-for list="{{ menu }}" as="m">
-            <div style="display:grid;grid-template-columns:clamp(64px,7vw,104px) minmax(0,1fr) auto;gap:clamp(14px,1.6vw,24px);align-items:center;padding:clamp(14px,2.2vh,22px) 0">
-              <div style="width:clamp(64px,7vw,104px);height:clamp(64px,7vw,104px);color:#1A0D06">
+            <div style="display:grid;grid-template-columns:min(clamp(64px,7vw,104px),10vh) minmax(0,1fr) auto;gap:clamp(14px,1.6vw,24px);align-items:center;padding:clamp(6px,1.7vh,22px) 0">
+              <div style="width:min(clamp(64px,7vw,104px),10vh);height:min(clamp(64px,7vw,104px),10vh);color:#1A0D06">
                 <sc-if value="{{ m.i0 }}"><img fetchpriority="low" decoding="async" data-src="img/v5-m0.webp" data-at="11" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></sc-if><sc-if value="{{ m.i1 }}"><img fetchpriority="low" decoding="async" data-src="img/v5-m1.webp" data-at="11" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></sc-if><sc-if value="{{ m.i2 }}"><img fetchpriority="low" decoding="async" data-src="img/v5-m2.webp" data-at="11" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></sc-if>
               </div>
               <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
                 <span style="font-weight:500;font-size:clamp(22px,2.2vw,34px);line-height:0.95;letter-spacing:-0.04em">{{ m.title }}</span>
-                <span style="font-weight:300;font-size:13px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">{{ m.desc }}</span>
+                <span class="m-desc" style="font-weight:300;font-size:13px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">{{ m.desc }}</span>
               </div>
             </div>
           </sc-for>
@@ -254,7 +256,8 @@ class Component extends DCLogic {
     this.heroT = setTimeout(afterHero, 4000);
     this.beat = 0; this.anim = null; this.lastWheel = 0; this.armed = true; this.acc = 0;
     document.documentElement.style.overflow = 'hidden'; document.body.style.overflow = 'hidden';
-    const menuScrolls = (t, dir) => { const m = this.els.menu; if (!m || !(t instanceof Node) || !m.contains(t) || this.BEATS[this.beat].p !== 0.83) return false; return dir > 0 ? m.scrollTop + m.clientHeight < m.scrollHeight - 2 : m.scrollTop > 0; };
+    // Меню целиком помещается в экран и не прокручивается: жест сразу листает кадр.
+    const menuScrolls = () => false;
     this.onWheel = e => {
       const now = performance.now(), gap = now - this.lastWheel; this.lastWheel = now;
       const dy = Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
