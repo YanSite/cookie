@@ -1,0 +1,10 @@
+{
+  "name": "@demo/cookie",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Концепт «Мега Куки»: статический сайт, публикуется из зеркала YanSite/cookie.",
+  "scripts": {
+    "dev": "serve -l 4102 --no-clipboard .",
+    "build": "node ../../../tools/demo/check-static.mjs ."
+  }
+}
